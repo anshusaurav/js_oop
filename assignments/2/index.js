@@ -118,7 +118,7 @@ mike.greet(); //-> Logs 'hello'
 
 /*** CHALLENGE 3 of 3 ***/
 // add code here
-PersonConstructor.introduce = function(){
+PersonConstructor.prototype.introduce = function(){
   console.log(`Hi, my name is ${this.name}`);
 };
 
@@ -132,12 +132,12 @@ mike.introduce(); // -> Logs 'Hi, my name is Mike'
 /*** CHALLENGE 1 of 3 ***/
 
 class PersonClass {
-	constructor() {
-    // add code here
-
-
+	constructor(name) {
+    this.name = name;
 	}
-
+  greet= function() {
+    console.log('hello');
+  }
 	// add code here
 
 }
@@ -145,19 +145,28 @@ class PersonClass {
 
 // /********* Uncomment this line to test your work! *********/
 var george = new PersonClass;
-// george.greet(); // -> Logs 'hello'
+george.greet(); // -> Logs 'hello'
 
-
+console.log('HEre');
 
 /*** CHALLENGE 2 of 3 ***/
 
 // add code here
-
+class DeveloperClass extends PersonClass {
+	constructor(str, age){
+    super(str);
+    
+  }
+  introduce =function() {
+    console.log(`Hello World, my name is ${this.name}`);
+  }
+	// add code here
+}
 
 // /********* Uncomment these lines to test your work! *********/
-// var thai = new DeveloperClass('Thai', 32);
-// console.log(thai.name); // -> Logs 'Thai'
-// thai.introduce(); //-> Logs 'Hello World, my name is Thai'
+var thai = new DeveloperClass('Thai', 32);
+console.log(thai.name); // -> Logs 'Thai'
+thai.introduce(); //-> Logs 'Hello World, my name is Thai'
 
 
 
